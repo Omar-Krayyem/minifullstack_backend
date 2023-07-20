@@ -1,10 +1,5 @@
 <?php
 
-header('Access-Control-Allow-Origin: *');
-header('Access-Control-Allow-Methods: GET, POST, PUT, DELETE');
-header('Access-Control-Allow-Headers: Content-Type');
-header('Access-Control-Max-Age: 3600');
-
 include('connection.php');
 
 $username = $_POST['username'];
@@ -31,6 +26,8 @@ if ($num_rows == 0) {
         $response['status'] = 'logged in';
         $response['user_id'] = $id;
         $response['username'] = $username;
+        $response['first_name'] = $first_name;
+        $response['last_name'] = $last_name;
     } else {
         $response['status'] = "wrong password";
     }
