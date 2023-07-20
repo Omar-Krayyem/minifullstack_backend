@@ -2,7 +2,16 @@
 
 include('connection.php');
 
-$username = $_POST['username'];
+if(isset($_POST["username"]) && $_POST["username"] != ""){
+    $name = $_POST["username"];
+}else{
+    $response = [];
+    $response["success"] = false;   
+    echo json_encode($response);
+    return; 
+}
+
+// $username = $_POST['username'];
 $password = $_POST['password'];
 
 // $username = "omar33";

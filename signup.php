@@ -7,9 +7,16 @@ include('connection.php');
 // $first_name = "omar";
 // $last_name = "kr";
 
+if(isset($_POST["username"]) && $_POST["username"] != ""){
+    $name = $_POST["username"];
+}else{
+    $response = [];
+    $response["success"] = false;   
+    echo json_encode($response);
+    return; 
+}
 
-
-$username = $_POST['username'];
+// $username = $_POST['username'];
 $password = $_POST['password'];
 $first_name = $_POST['first_name'];
 $last_name = $_POST['last_name'];
